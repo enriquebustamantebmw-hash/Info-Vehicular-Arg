@@ -901,20 +901,20 @@
               <div class="custom-select">
                 <button type="button" class="select-trigger">Seleccioná el informe</button>
                 <div class="select-menu">
-                  <button type="button" class="select-option" data-value="Informe de Infracciones Clásico" data-link="https://mpago.la/2TH2CZK">
+                  <button type="button" class="select-option" data-value="Informe de infracciones clásico" data-link="https://mpago.la/2TH2CZK">
                     <span>Informe de infracciones clásico (1-2 Hs) </span>
                     <span class="option-price">($14.900)</span>
                   </button>
-                  <button type="button" class="select-option" data-value="Informe de Infracciones Express" data-link="https://mpago.la/1iA9KRP">
+                  <button type="button" class="select-option" data-value="Informe de infracciones express" data-link="https://mpago.la/1iA9KRP">
                     <span>Informe de infracciones express (5-10 Min)</span>
                     <span class="option-price">($19.900)</span>
                   </button>
-                  <button type="button" class="select-option" data-value="Informe de Dominio" data-link="https://mpago.la/2sd7RC6">
-                    <span>Informe de Dominio (Hasta 24 Hs.Hábiles)</span>
+                  <button type="button" class="select-option" data-value="Informe de dominio" data-link="https://mpago.la/2sd7RC6">
+                    <span>Informe de dominio (Hasta 24 Hs.Hábiles)</span>
                     <span class="option-price">($9.900)</span>
                   </button>
-                  <button type="button" class="select-option" data-value="Informe de Dominio Histórico" data-link="https://mpago.la/12DNJFh">
-                    <span>Informe de Dominio histórico (Hasta 24 Hs.Hábiles)</span>
+                  <button type="button" class="select-option" data-value="Informe de dominio histórico" data-link="https://mpago.la/12DNJFh">
+                    <span>Informe de dominio histórico (Hasta 24 Hs.Hábiles)</span>
                     <span class="option-price">($14.900)</span>
                   </button>
                   <button type="button" class="select-option" data-value="Informe deuda de patentes CABA" data-link="https://mpago.la/31GXHwH">
@@ -1286,20 +1286,32 @@
     confirmYes.addEventListener("click", function() {
       if (!pedidoActual) return;
 
-      const params = new URLSearchParams();
-      params.append("entry.783665230", pedidoActual.patente);
-      params.append("entry.1902766676", pedidoActual.email);
-      params.append("entry.297677529", pedidoActual.informe);
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = googleFormURL;
+      form.target = "hiddenGoogleForm";
+      form.style.display = "none";
 
-      fetch(googleFormURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: params
+      const campos = {
+        "entry.783665230": pedidoActual.patente,
+        "entry.1902766676": pedidoActual.email,
+        "entry.297677529": pedidoActual.informe
+      };
+
+      Object.keys(campos).forEach(function(nombre) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = nombre;
+        input.value = campos[nombre];
+        form.appendChild(input);
       });
+
+      document.body.appendChild(form);
+      form.submit();
 
       setTimeout(function() {
         window.location.href = pedidoActual.link;
-      }, 450);
+      }, 900);
     });
   }
 
@@ -1310,6 +1322,9 @@
     });
   });
 </script>
+
+
+<iframe name="hiddenGoogleForm" style="display:none;"></iframe>
 
 </body>
 </html>
