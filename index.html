@@ -899,7 +899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1>Consultá informes vehiculares por patente</h1>
       <p class="hero-subtitle">Informes de infracciones, dominio, radicación y deuda de patentes<br>para comprar o vender con más seguridad.</p>
 
-      <div class="form-card">
+      <div class="form-card" id="solicitar-informe">
         <div class="form-title">
           <svg width="29" height="29" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2Z"/><path d="M13 3v6h6"/><circle cx="18" cy="18" r="3"/><path d="m20.2 20.2 1.8 1.8"/></svg>
           Obtené tu informe en minutos
@@ -1169,7 +1169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   const paymentLinks = {
-    "Informe de infracciones clásico": "https://mpago.la/2TH2CZK",
+    "Informe de infracciones": "https://mpago.la/2TH2CZK",
     "Informe de infracciones express": "https://mpago.la/1iA9KRP",
     "Informe de dominio": "https://mpago.la/2sd7RC6",
     "Informe de dominio histórico": "https://mpago.la/12DNJFh",
@@ -1341,10 +1341,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 
+  function seleccionarInformePorOpcion(option) {
+    if (!option) return false;
+
+    const selectBox = option.closest('.custom-select');
+    if (!selectBox) return false;
+
+    const trigger = selectBox.querySelector('.select-trigger');
+    const hiddenInput = selectBox.querySelector('input[type="hidden"]');
+    const label = option.dataset.value;
+    const priceElement = option.querySelector('.option-price');
+    const price = priceElement ? priceElement.textContent : "";
+    const link = option.dataset.link || paymentLinks[label];
+
+    if (trigger) trigger.textContent = label + (price ? " " + price : "");
+    if (hiddenInput) {
+      hiddenInput.value = label;
+      hiddenInput.dataset.paymentLink = link;
+    }
+
+    selectBox.dataset.selectedLink = link;
+    selectBox.classList.remove('open');
+    return true;
+  }
+
+  function irAlFormulario() {
+    const formulario = document.getElementById('solicitar-informe');
+    const patenteInput = document.querySelector('input[type="text"]');
+
+    if (formulario) {
+      formulario.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    setTimeout(function() {
+      if (patenteInput) patenteInput.focus();
+    }, 500);
+  }
+
+  function seleccionarInformePorLink(link) {
+    const option = document.querySelector('.select-option[data-link="' + link + '"]');
+    return seleccionarInformePorOpcion(option);
+  }
+
+  function seleccionarInformePorNombre(nombre) {
+    if (!nombre) return false;
+
+    const nombreNormalizado = nombre.toLowerCase().trim();
+    const options = document.querySelectorAll('.select-option');
+
+    for (let i = 0; i < options.length; i++) {
+      const valueNormalizado = (options[i].dataset.value || '').toLowerCase().trim();
+
+      if (valueNormalizado === nombreNormalizado) {
+        return seleccionarInformePorOpcion(options[i]);
+      }
+    }
+
+    return false;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const informeURL = params.get('informe');
+
+  if (informeURL) {
+    seleccionarInformePorNombre(decodeURIComponent(informeURL));
+    irAlFormulario();
+  }
+
   document.querySelectorAll('.card-button[data-payment-link]').forEach(function(button) {
     button.addEventListener('click', function(event) {
       event.preventDefault();
-      window.location.href = button.dataset.paymentLink;
+      seleccionarInformePorLink(button.dataset.paymentLink);
+      irAlFormulario();
     });
   });
 </script>
