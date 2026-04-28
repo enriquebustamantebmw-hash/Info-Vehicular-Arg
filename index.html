@@ -842,6 +842,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .brand-text .info { font-size:28px; }
     .brand-text .vehicular { font-size:22px; }
     .nav-links { display:none; }
+    .escudo-header { width:42px; margin-left:auto; display:block; }
 
     .container { width:calc(100% - 30px); }
     .hero { padding-top:28px; }
@@ -906,13 +907,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2Z"/><path d="M13 3v6h6"/></svg>
         SOLICITAR INFORME
       </a>
-      <img src="./escudo.png" width="40px" alt="">
     </nav>
+
+    <img src="./escudo.png" class="escudo-header" alt="Escudo argentino">
   </div>
 </header>
 
 <main>
   <style>
+    .escudo-header {
+  width: 46px;
+  height: auto;
+  margin-left: 22px;
+  opacity: 0.9;
+  display: block;
+  flex: 0 0 auto;
+}
   .hero-impacto {
     position: relative;
     overflow: hidden;
@@ -1280,6 +1290,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   @media (max-width:900px) {
+    .escudo-header {
+  width: 42px;
+  margin-left: auto;
+}
     .hero-impacto { padding: 18px 0 28px; }
     .impact-nav { margin-bottom: 18px; align-items: flex-start; }
     .impact-brand img { width: 54px; height: 54px; }
