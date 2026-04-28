@@ -1600,7 +1600,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "Informe de radicación por patente": "https://mpago.la/1ghNBYP"
   };
 
-  const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSdW5f3O9xKGj9F7KO0cVyGwXACr6uoABCAHa7ujVeCl4qtGMQ/formResponse";
+  const appsScriptURL = "https://script.google.com/macros/s/AKfycbxYvxLVT5tJgqlJbfXZStRzU014yC1JVlFwV_Xl0RU5LU22-7bDEnqzIa4FndOyLpFq/exec";
 
   let pedidoActual = null;
 
@@ -1734,35 +1734,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     confirmYes.addEventListener("click", function() {
       if (!pedidoActual) return;
 
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = googleFormURL;
-      form.target = "hiddenGoogleForm";
-      form.style.display = "none";
+      confirmYes.disabled = true;
+      confirmYes.textContent = "Guardando pedido...";
 
-      const campos = {
-        "entry.783665230": pedidoActual.patente,
-        "entry.1902766676": pedidoActual.email,
-        "entry.297677529": pedidoActual.informe
-      };
-
-      Object.keys(campos).forEach(function(nombre) {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = nombre;
-        input.value = campos[nombre];
-        form.appendChild(input);
-      });
-
-      document.body.appendChild(form);
-      form.submit();
+      try {
+        fetch(appsScriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify({
+            patente: pedidoActual.patente,
+            email: pedidoActual.email,
+            informe: pedidoActual.informe
+          })
+        });
+      } catch (error) {
+        console.error("No se pudo guardar el pedido:", error);
+      }
 
       setTimeout(function() {
         window.location.href = pedidoActual.link;
-      }, 900);
+      }, 2000);
     });
   }
-
   function seleccionarInformePorOpcion(option) {
     if (!option) return false;
 
