@@ -906,120 +906,511 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2Z"/><path d="M13 3v6h6"/></svg>
         SOLICITAR INFORME
       </a>
+      <img src="./escudo.png" width="40px" alt="">
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="solicitar">
-    <div class="container hero-content">
-      <h1>Consultá informes vehiculares por patente</h1>
-      <p class="hero-subtitle">Informes de infracciones, dominio, radicación y deuda de patentes<br>para comprar o vender con más seguridad.</p>
+  <style>
+  .hero-impacto {
+    position: relative;
+    overflow: hidden;
+    padding: 28px 0 42px;
+    background:
+      linear-gradient(180deg, rgba(2, 18, 45, .92), rgba(2, 28, 67, .88)),
+      radial-gradient(circle at 18% 50%, rgba(18, 103, 201, .32), transparent 34%),
+      radial-gradient(circle at 90% 45%, rgba(255,255,255,.18), transparent 30%),
+      linear-gradient(135deg, #031b3f 0%, #052c63 100%);
+    color: #fff;
+  }
 
-      <div class="form-card" id="solicitar-informe">
-        <div class="form-title">
-          <svg width="29" height="29" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2Z"/><path d="M13 3v6h6"/><circle cx="18" cy="18" r="3"/><path d="m20.2 20.2 1.8 1.8"/></svg>
-          Obtené tu informe en minutos
-        </div>
+  .hero-impacto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .28;
+    pointer-events: none;
+  }
 
-        <div class="form-grid">
-          <div>
-            <div class="label">Patente / Dominio</div>
-            <div class="input-wrap">
-              <div class="input-icon-box">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 16h14l-1.5-5.5A3 3 0 0 0 14.6 8H9.4a3 3 0 0 0-2.9 2.5L5 16Z"/><path d="M7 16v2M17 16v2M8 12h8"/></svg>
-              </div>
-              <input type="text" placeholder="Ej: AB123CD">
-            </div>
-          </div>
+  .hero-impacto::after {
+    content: "";
+    position: absolute;
+    right: -130px;
+    bottom: 155px;
+    width: 660px;
+    height: 250px;
+    border-radius: 60% 40% 35% 65%;
+    border: 4px solid rgba(255,255,255,.12);
+    box-shadow: inset 0 -34px 0 rgba(255,255,255,.07), 0 0 80px rgba(18,103,201,.35);
+    transform: rotate(-5deg);
+    opacity: .45;
+    pointer-events: none;
+  }
 
-          <div>
-            <div class="label">Tipo de informe</div>
-            <div class="input-wrap">
-              <div class="custom-select">
-                <button type="button" class="select-trigger">Seleccioná el informe</button>
-                <div class="select-menu">
-                  <button type="button" class="select-option" data-value="Informe de infracciones" data-link="https://mpago.la/2TH2CZK">
-                    <span>Informe de infracciones (1-2 Hs) </span>
-                    <span class="option-price">($14.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe de infracciones express" data-link="https://mpago.la/1iA9KRP">
-                    <span>Informe de infracciones express (5-10 Min)</span>
-                    <span class="option-price">($19.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe de dominio" data-link="https://mpago.la/2sd7RC6">
-                    <span>Informe de dominio (Hasta 24 Hs.Hábiles)</span>
-                    <span class="option-price">($9.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe de dominio histórico" data-link="https://mpago.la/12DNJFh">
-                    <span>Informe de dominio histórico (Hasta 24 Hs.Hábiles)</span>
-                    <span class="option-price">($14.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe deuda de patentes CABA" data-link="https://mpago.la/31GXHwH">
-                    <span>Informe deuda de patentes CABA (5-10 Min)</span>
-                    <span class="option-price">($9.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe deuda de patentes Provincia de Buenos Aires" data-link="https://mpago.la/2GB7iZN">
-                    <span>Informe deuda de patentes Provincia de Buenos Aires (5-10 Min)</span>
-                    <span class="option-price">($9.900)</span>
-                  </button>
-                  <button type="button" class="select-option" data-value="Informe de radicación por patente" data-link="https://mpago.la/1ghNBYP">
-                    <span>Informe de radicación por patente (5-10 Min)</span>
-                    <span class="option-price">($7.900)</span>
-                  </button>
-                </div>
-                <input type="hidden" name="tipo_informe" value="">
-              </div>
-            </div>
-          </div>
+  .impact-nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 26px;
+  }
 
-          <div>
-            <div class="label">Email</div>
-            <div class="input-wrap">
-              <div class="input-icon">
-                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m4 7 8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-              </div>
-              <input type="email" placeholder="ejemplo@mail.com">
-            </div>
-          </div>
-        </div>
+  .impact-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+  }
 
-        <button type="button" class="main-button">
-          <svg width="21" height="21" fill="currentColor" viewBox="0 0 24 24"><path d="M17 9V7A5 5 0 0 0 7 7v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1Zm-8 0V7a3 3 0 0 1 6 0v2H9Z"/></svg>
-          SOLICITAR INFORME
-        </button>
+  .impact-brand img {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  }
 
-        <div class="form-note">
-          <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path d="m4 7 8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-          Los informes se envían por e-mail a la dirección indicada.
-        </div>
-      </div>
+  .impact-brand-text {
+    font-weight: 900;
+    line-height: .96;
+    letter-spacing: -.8px;
+    font-size: 25px;
+  }
 
-      <div class="trust-bar">
-        <div class="trust-item">
-          <svg width="38" height="38" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 4 5.4v6.1c0 5 3.4 9.6 8 10.5 4.6-.9 8-5.5 8-10.5V5.4L12 2Zm-1 14.2-3.2-3.2 1.4-1.4 1.8 1.8 4.3-4.3 1.4 1.4-5.7 5.7Z"/></svg>
-          <div><strong>Pago seguro</strong><span>con Mercado Pago</span></div>
-        </div>
-        <div class="trust-item">
-          <svg width="38" height="38" fill="currentColor" viewBox="0 0 24 24"><path d="M17 9V7A5 5 0 0 0 7 7v2H5v13h14V9h-2Zm-8 0V7a3 3 0 0 1 6 0v2H9Z"/></svg>
-          <div><strong>Página segura</strong><span>Sitio protegido con cifrado SSL</span></div>
-        </div>
-        <div class="trust-item">
-          <svg width="39" height="39" fill="currentColor" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5Zm10 8.2L4.8 7H4v1.5l8 6.8 8-6.8V7h-.8L12 13.2Z"/></svg>
-          <div><strong>Envío por email</strong><span>Recibí tu informe en tu casilla de correo</span></div>
-        </div>
-        <div class="trust-item">
-          <svg width="38" height="38" fill="currentColor" viewBox="0 0 24 24"><path d="m12 1.8 2.1 2.2 3-.4.7 3 2.8 1.3-1.4 2.7 1.4 2.8-2.8 1.3-.7 3-3-.4-2.1 2.2-2.1-2.2-3 .4-.7-3-2.8-1.3 1.4-2.8-1.4-2.7 2.8-1.3.7-3 3 .4L12 1.8Zm-1.1 12.5 5.3-5.3-1.4-1.4-3.9 3.9-1.7-1.7-1.4 1.4 3.1 3.1Z"/></svg>
-          <div><strong>Información confiable</strong><span>Datos obtenidos de fuentes oficiales y registros públicos</span></div>
-        </div>
+  .impact-trust-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ecfdf5;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: right;
+  }
+
+  .impact-trust-top svg { color: #33d36b; flex: 0 0 auto; }
+
+  .impact-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .impact-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(180deg, #ff3f3f, #d72222);
+    color: #fff;
+    font-weight: 900;
+    font-size: 17px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(215,34,34,.28);
+    margin-bottom: 14px;
+  }
+
+  .hero-impacto h1 {
+    color: #fff;
+    margin: 0 auto 8px;
+    max-width: 980px;
+    font-size: clamp(34px, 6vw, 72px);
+    line-height: .96;
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+    text-shadow: 0 6px 18px rgba(0,0,0,.35);
+  }
+
+  .hero-impacto h1 span {
+    display: block;
+    color: #ffd21f;
+    margin-top: 4px;
+  }
+
+  .impact-question {
+    display: inline-block;
+    background: #fff;
+    color: #e12222;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 900;
+    padding: 7px 18px;
+    border-radius: 8px;
+    margin: 8px 0 12px;
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+  }
+
+  .impact-desc {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #f5f8ff;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .impact-tags {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto 24px;
+  }
+
+  .impact-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #fff7c7;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .impact-tags svg { color: #ffd21f; }
+
+  .impact-form-card {
+    position: relative;
+    z-index: 4;
+    width: min(980px, 100%);
+    margin: 0 auto;
+    background: #fff;
+    color: #14233c;
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    padding: 28px 34px 24px;
+    border: 1px solid rgba(216,226,239,.9);
+  }
+
+  .impact-form-title {
+    color: var(--azul);
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -.6px;
+    margin-bottom: 7px;
+  }
+
+  .impact-form-subtitle {
+    color: #2b3a50;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+
+  .impact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 16px;
+    text-align: left;
+    align-items: end;
+  }
+
+  .impact-form-card .input-wrap {
+    height: 54px;
+    border-radius: 9px;
+  }
+
+  .impact-form-card .input-icon-box {
+    height: 54px;
+    width: 52px;
+  }
+
+  .impact-form-card input,
+  .impact-form-card .select-trigger {
+    font-size: 15px;
+  }
+
+  .impact-main-button {
+    width: 100%;
+    height: 54px;
+    border: 0;
+    border-radius: 9px;
+    background: linear-gradient(180deg, #35c864, #22a94d);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: .2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(36,174,78,.26);
+    text-transform: uppercase;
+  }
+
+  .impact-payment-note {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #263348;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .impact-payment-note strong { color: var(--azul); }
+  .impact-payment-note svg { color: #22a94d; }
+
+  .impact-benefits {
+    position: relative;
+    z-index: 2;
+    width: min(980px, 100%);
+    margin: 16px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border: 1px solid #dce5f0;
+    border-radius: 14px;
+    box-shadow: 0 9px 26px rgba(5, 31, 72, .14);
+    overflow: hidden;
+  }
+
+  .impact-benefit {
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    text-align: left;
+    color: #14233c;
+    position: relative;
+  }
+
+  .impact-benefit:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 1px;
+    height: 56px;
+    background: #d9e2ef;
+  }
+
+  .impact-benefit svg { color: var(--azul); flex: 0 0 auto; }
+  .impact-benefit strong { display: block; color: var(--azul); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+  .impact-benefit span { display: block; margin-top: 3px; color: #2e3a4c; font-size: 11px; line-height: 1.3; font-weight: 600; }
+
+  .landing-info {
+    padding: 42px 0 24px;
+    background: #fff;
+  }
+
+  .landing-info-grid {
+    width: min(980px, calc(100% - 48px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .landing-card {
+    background: #fff;
+    border: 1px solid #dce5f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(10,41,80,.08);
+    padding: 26px 28px;
+  }
+
+  .landing-card h2 {
+    color: var(--azul);
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  .landing-list {
+    list-style: none;
+    display: grid;
+    gap: 13px;
+  }
+
+  .landing-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #1f2d42;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .landing-list .ok { color: #22a94d; font-weight: 900; }
+  .landing-list .warn { color: #f5b800; font-weight: 900; }
+  .landing-list .bad { color: #e12222; font-weight: 900; }
+
+  .safe-box {
+    margin-top: 18px;
+    background: #fff7d7;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    color: var(--azul);
+    font-weight: 900;
+  }
+
+  .safe-box span {
+    display: block;
+    font-weight: 600;
+    color: #263348;
+    margin-top: 3px;
+  }
+
+  .footer-cta-impact {
+    background: linear-gradient(135deg, #052c63 0%, #031b3f 100%);
+    color: #fff;
+    text-align: center;
+    padding: 18px 20px;
+    font-weight: 900;
+  }
+
+  .footer-cta-impact span {
+    display: block;
+    font-weight: 500;
+    color: #dbe8f7;
+    margin-top: 5px;
+  }
+
+  @media (max-width:900px) {
+    .hero-impacto { padding: 18px 0 28px; }
+    .impact-nav { margin-bottom: 18px; align-items: flex-start; }
+    .impact-brand img { width: 54px; height: 54px; }
+    .impact-brand-text { font-size: 20px; }
+    .impact-trust-top { font-size: 11px; max-width: 150px; }
+    .impact-alert { font-size: 13px; padding: 8px 12px; }
+    .hero-impacto h1 { font-size: 34px; }
+    .impact-desc { font-size: 14px; }
+    .impact-tags { gap: 10px 14px; }
+    .impact-tags span { font-size: 11px; }
+    .impact-form-card { padding: 22px 16px; border-radius: 14px; }
+    .impact-form-title { font-size: 21px; line-height: 1.15; }
+    .impact-form-grid { grid-template-columns: 1fr; gap: 14px; }
+    .impact-benefits { grid-template-columns: 1fr; }
+    .impact-benefit:not(:last-child)::after { display: none; }
+    .impact-benefit { border-bottom: 1px solid #d9e2ef; min-height: 76px; }
+    .impact-benefit:last-child { border-bottom: 0; }
+    .landing-info-grid { width: calc(100% - 30px); grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="hero-impacto" id="solicitar">
+  <div class="container">
+    <div class="impact-content">
+      <div class="impact-alert">⚠️ CASOS REALES, MULTAS REALES</div>
+      <h1>Un auto puede tener <span>$2.580.000 en multas</span></h1>
+      <div class="impact-question">¿Y si el próximo sos vos?</div>
+      <p class="impact-desc">Antes de comprar, consultá el informe y evitá problemas.</p>
+      <div class="impact-tags">
+        <span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Multas y deudas</span>
+        <span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 20V9l6-5 6 5v11"/><path d="M9 20v-6h6v6"/></svg>Informe de dominio</span>
+        <span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 10V8a5 5 0 0 0-10 0v2"/><rect x="5" y="10" width="14" height="10" rx="2"/></svg>Embargos y prendas</span>
+        <span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 16h14l-1.5-5.5A3 3 0 0 0 14.6 8H9.4a3 3 0 0 0-2.9 2.5L5 16Z"/><path d="M7 16v2M17 16v2"/></svg>Situación registral</span>
       </div>
     </div>
-    <br>
-  </section>
-  
-  
 
-  <section class="reports-section" id="informes">
+    <div class="impact-form-card" id="solicitar-informe">
+      <div class="impact-form-title">Consultá tu informe vehicular por patente</div>
+      <div class="impact-form-subtitle">Descubrí si el vehículo tiene multas, deudas, prendas o problemas legales.</div>
+
+      <div class="impact-form-grid">
+        <div>
+          <div class="label">Patente / Dominio</div>
+          <div class="input-wrap">
+            <div class="input-icon-box">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 16h14l-1.5-5.5A3 3 0 0 0 14.6 8H9.4a3 3 0 0 0-2.9 2.5L5 16Z"/><path d="M7 16v2M17 16v2M8 12h8"/></svg>
+            </div>
+            <input type="text" placeholder="Ej: AB123CD">
+          </div>
+        </div>
+
+        <div>
+          <div class="label">Tipo de informe que querés pedir</div>
+          <div class="input-wrap">
+            <div class="custom-select">
+              <button type="button" class="select-trigger">Seleccioná el informe</button>
+              <div class="select-menu">
+                <button type="button" class="select-option" data-value="Informe de infracciones" data-link="https://mpago.la/2TH2CZK"><span>Informe de infracciones (1-2 Hs)</span><span class="option-price">($14.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe de infracciones express" data-link="https://mpago.la/1iA9KRP"><span>Informe de infracciones express (5-10 Min)</span><span class="option-price">($19.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe de dominio" data-link="https://mpago.la/2sd7RC6"><span>Informe de dominio (Hasta 24 Hs.Hábiles)</span><span class="option-price">($9.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe de dominio histórico" data-link="https://mpago.la/12DNJFh"><span>Informe de dominio histórico (Hasta 24 Hs.Hábiles)</span><span class="option-price">($14.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe deuda de patentes CABA" data-link="https://mpago.la/31GXHwH"><span>Informe deuda de patentes CABA (5-10 Min)</span><span class="option-price">($9.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe deuda de patentes Provincia de Buenos Aires" data-link="https://mpago.la/2GB7iZN"><span>Informe deuda de patentes Provincia de Buenos Aires (5-10 Min)</span><span class="option-price">($9.900)</span></button>
+                <button type="button" class="select-option" data-value="Informe de radicación por patente" data-link="https://mpago.la/1ghNBYP"><span>Informe de radicación por patente (5-10 Min)</span><span class="option-price">($7.900)</span></button>
+              </div>
+              <input type="hidden" name="tipo_informe" value="">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="label">Email</div>
+          <div class="input-wrap">
+            <div class="input-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m4 7 8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+            </div>
+            <input type="email" placeholder="ejemplo@mail.com">
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="main-button impact-main-button">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        Solicitar informe ahora
+      </button>
+
+      <div class="impact-payment-note">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 10V8a5 5 0 0 0-10 0v2"/><rect x="5" y="10" width="14" height="10" rx="2"/></svg>
+        Pago 100% seguro a través de <strong><img src="./mercadopago.png" width="100px alt=""></strong>
+      </div>
+    </div>
+
+    <div class="impact-benefits">
+      <div class="impact-benefit"><svg width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Recibí tu informe en minutos</strong><span>Enviado por email apenas se confirma el pago.</span></div></div>
+      <div class="impact-benefit"><svg width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 2.9 8.2 7 9 4.1-.8 7-4.6 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg><div><strong>Datos oficiales y actualizados</strong><span>Información obtenida de fuentes oficiales.</span></div></div>
+      <div class="impact-benefit"><svg width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m4 7 8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg><div><strong>Fácil, rápido y seguro</strong><span>Completás la patente, pagás y lo recibís.</span></div></div>
+      <div class="impact-benefit"><svg width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><div><strong>Evitá sorpresas y pérdidas</strong><span>Tomá decisiones informadas y comprá tranquilo.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="landing-info">
+  <div class="landing-info-grid">
+    <div class="landing-card">
+      <h2>¿Qué incluye el informe?</h2>
+      <ul class="landing-list">
+        <li><span class="ok">✓</span> Multas de tránsito y estacionamiento.</li>
+        <li><span class="ok">✓</span> Deudas de patente e impuestos.</li>
+        <li><span class="ok">✓</span> Informe de dominio completo.</li>
+        <li><span class="ok">✓</span> Embargos, prendas y prohibiciones.</li>
+        <li><span class="ok">✓</span> Datos del titular y radicación.</li>
+        <li><span class="ok">✓</span> Historial de transferencias.</li>
+      </ul>
+    </div>
+    <div class="landing-card">
+      <h2>¿Por qué es importante?</h2>
+      <ul class="landing-list">
+        <li><span class="warn">⚠</span> Muchos autos usados tienen deudas ocultas que terminás pagando vos.</li>
+        <li><span class="bad">✕</span> Podés tener problemas legales o no poder transferir el vehículo.</li>
+        <li><span class="ok">✓</span> Un pequeño gasto ahora puede ahorrarte millones después.</li>
+      </ul>
+      <div class="safe-box">
+        <svg width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 2.9 8.2 7 9 4.1-.8 7-4.6 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg>
+        <div>Comprá tranquilo, comprá informado.<span>Tu seguridad es lo primero.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-cta-impact">NO TE ARRIESGUES. CONSULTÁ ANTES DE COMPRAR.<span>Un informe puede salvarte de un gran problema.</span></div>
+ <section class="reports-section" id="informes">
     <div class="section-title">Nuestros informes</div>
 
     <div class="reports-grid">
